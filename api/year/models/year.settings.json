@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "years",
+  "info": {
+    "name": "year"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "private": false,
+      "unique": false
+    },
+    "courses": {
+      "via": "year",
+      "collection": "course"
+    }
+  }
+}

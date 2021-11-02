@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "name": "course",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "program": {
+      "model": "program",
+      "via": "courses"
+    },
+    "subject": {
+      "model": "subject",
+      "via": "courses"
+    },
+    "year": {
+      "model": "year",
+      "via": "courses"
+    },
+    "students": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "studentOfCourses",
+      "dominant": true
+    },
+    "teachers": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "teacherOfCourses",
+      "dominant": true
+    },
+    "classroom": {
+      "model": "classroom",
+      "via": "courses"
+    }
+  }
+}
